@@ -15,14 +15,17 @@ http://localhost:8080/api/users
 ---
 
 ### 1. Create User (Tambah User)
+
 **Endpoint:**
 ```
 POST /api/users
 ```
+
 **Request Header:**
 ```
 Content-Type: application/json
 ```
+
 **Request Body:**
 ```json
 {
@@ -30,6 +33,7 @@ Content-Type: application/json
     "age": 17
 }
 ```
+
 **Response Body (Success - 201 Created):**
 ```json
 {
@@ -41,16 +45,37 @@ Content-Type: application/json
     }
 }
 ```
+
+**Response Body (Failed - 400 Bad Request - Field kosong):**
+```json
+{
+    "status": "error",
+    "message": "name: must not be blank, age: must be greater than 0"
+}
+```
+
+**Response Body (Failed - 400 Bad Request - Tipe data salah):**
+```json
+{
+    "status": "error",
+    "message": "age: must be a number"
+}
+```
+
 ---
+
 ### 2. Get All Users (Ambil Semua User)
+
 **Endpoint:**
 ```
 GET /api/users
 ```
+
 **Request Body:**
 ```
 -
 ```
+
 **Response Body (Success - 200 OK):**
 ```json
 {
@@ -64,20 +89,34 @@ GET /api/users
     ]
 }
 ```
+
+**Response Body (Failed - 200 OK - Data kosong):**
+```json
+{
+    "status": "success",
+    "data": []
+}
+```
+
 ---
+
 ### 3. Get User By ID (Ambil User Berdasarkan ID)
+
 **Endpoint:**
 ```
 GET /api/users/{id}
 ```
+
 **Contoh:**
 ```
 GET /api/users/edcc1087-ab56-4288-bdef-356f3605beba
 ```
+
 **Request Body:**
 ```
 -
 ```
+
 **Response Body (Success - 200 OK):**
 ```json
 {
@@ -89,27 +128,42 @@ GET /api/users/edcc1087-ab56-4288-bdef-356f3605beba
     }
 }
 ```
-**Response Body (Failed - 404):**
+
+**Response Body (Failed - 404 Not Found - ID tidak ditemukan):**
 ```json
 {
     "status": "error",
     "message": "user not found"
 }
 ```
+
+**Response Body (Failed - 400 Bad Request - ID tidak valid):**
+```json
+{
+    "status": "error",
+    "message": "invalid id format"
+}
+```
+
 ---
+
 ### 4. Update User (Perbarui Data User)
+
 **Endpoint:**
 ```
 PUT /api/users/{id}
 ```
+
 **Contoh:**
 ```
 PUT /api/users/edcc1087-ab56-4288-bdef-356f3605beba
 ```
+
 **Request Header:**
 ```
 Content-Type: application/json
 ```
+
 **Request Body:**
 ```json
 {
@@ -117,6 +171,7 @@ Content-Type: application/json
     "age": 18
 }
 ```
+
 **Response Body (Success - 200 OK):**
 ```json
 {
@@ -128,40 +183,73 @@ Content-Type: application/json
     }
 }
 ```
-**Response Body (Failed - 404):**
+
+**Response Body (Failed - 404 Not Found - ID tidak ditemukan):**
 ```json
 {
     "status": "error",
     "message": "user not found"
 }
 ```
+
+**Response Body (Failed - 400 Bad Request - Field kosong):**
+```json
+{
+    "status": "error",
+    "message": "name: must not be blank, age: must be greater than 0"
+}
+```
+
+**Response Body (Failed - 400 Bad Request - Tipe data salah):**
+```json
+{
+    "status": "error",
+    "message": "age: must be a number"
+}
+```
+
 ---
+
 ### 5. Delete User (Hapus User)
+
 **Endpoint:**
 ```
 DELETE /api/users/{id}
 ```
+
 **Contoh:**
 ```
 DELETE /api/users/edcc1087-ab56-4288-bdef-356f3605beba
 ```
+
 **Request Body:**
 ```
 -
 ```
+
 **Response Body (Success - 200 OK):**
 ```json
 {
     "status": "success delete user with id edcc1087-ab56-4288-bdef-356f3605beba"
 }
 ```
-**Response Body (Failed - 404):**
+
+**Response Body (Failed - 404 Not Found - ID tidak ditemukan):**
 ```json
 {
     "status": "error",
     "message": "user not found"
 }
 ```
+
+**Response Body (Failed - 400 Bad Request - ID tidak valid):**
+```json
+{
+    "status": "error",
+    "message": "invalid id format"
+}
+```
+
 ---
 ## Ringkasan Endpoint
 | Method | Endpoint | Deskripsi |
@@ -174,3 +262,6 @@ DELETE /api/users/edcc1087-ab56-4288-bdef-356f3605beba
 ---
 
 
+
+
+User management REST API documentation - Claude
