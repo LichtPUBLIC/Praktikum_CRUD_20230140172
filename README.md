@@ -208,3 +208,7 @@ DELETE /api/users/550e8400-e29b-41d4-a716-446655440000
 | GET | /api/users/{id} | Ambil user by ID |
 | PUT | /api/users/{id} | Update user by ID |
 | DELETE | /api/users/{id} | Hapus user by ID |
+
+## Tampilan Web
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/15d378bd-02b6-4188-adec-db34efff9c26" />
+
